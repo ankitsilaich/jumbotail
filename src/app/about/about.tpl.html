@@ -86,6 +86,7 @@
         <div ng-class="{'dropdown': true,'open': statusdropdownOpen}">
           <ul class="dropdown-list">
             <li class="dropdown-item" ng-repeat="item in orderStatuses" ><div ng-click="changeOrderStatus(item.value, item.name)">{{item.name}}</div></li>
+            <li class="dropdown-item"><div ng-click="changeOrderStatus(undefined, 'All Orders')">All Orders</div></li>
           </ul>
         </div>
       </div>
@@ -132,7 +133,7 @@
       <span>Search Result for : Programs, orders, sellers</span>
     </div>
     <div class="result-content col-6 text-right">
-      <span>{{filtered.length}}  Results</span>
+      <span>{{search.filtered.length}}  Results</span>
       <span class="grid" ng-click='isGrid=!isGrid'><i class="icon-grid icons"></i></span>
       <span class="list"  ng-click='isGrid=!isGrid'><i class="icon-list icons"></i></span>
     </div>
@@ -153,7 +154,8 @@
           </tr>
         </thead>
         <tbody>
-          <tr  ng-repeat="order in filtered = (orders | filter: {name: search.name} | filter : matchAmount) | filter: {status : currentSelectedStatus}">
+
+          <tr class="table-row" ng-repeat="order in search.filtered = (pageOrders | filter: {name: search.name}  | filter : matchAmount | filter: {status : currentSelectedStatus} )  | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage">
             <td data-title="Order Id">{{order.orderId}}</td>
             <td data-title="Name" class="dark-bold">{{order.name}}</td>
             <td data-title="Address" >{{order.address}}</td>
@@ -171,16 +173,16 @@
             </td>
           </tr>
         <tbody>
+
       </table>
+      <div class="table-row" ng-repeat="order in search.filtered = (pageOrders | filter: {name: search.name}  | filter : matchAmount | filter: {status : currentSelectedStatus} ) | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage" style="display:none">
+      
+      </div>
     </div>
   </div>
   <ul class="paginate pag5 clearfix">
-        <li class="single">Page 5 of 5</li>
-        <li><a>1</a></li>
-        <li><a>2</a></li>
-        <li><a>3</a></li>
-        <li><a>4</a></li>
-        <li class="current">5</li>
+        <li class="single">Page {{pagination.page + 1}} of {{pagination.numPages}}</li>
+        <li ng-repeat="n in [] | range: pagination.numPages" ng-class="{current: n == pagination.page}"><a ng-click="pagination.toPageId(n)">{{n+1}}</a></li>
   </ul>
 </div>
 <div id="modal" ng-class="{active: openTermsAndModal}">

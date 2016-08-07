@@ -1,6 +1,7 @@
 angular.module( 'ngBoilerplate.about', [
   'ui.router',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'simplePagination'
 ])
 
 .config(function config( $stateProvider ) {
@@ -27,40 +28,15 @@ angular.module( 'ngBoilerplate.about', [
   });
 })
 
-.controller( 'AboutCtrl', function AboutCtrl( $scope ,authenticationSvc, $location, auth, $timeout) {
-  // This is simple a demo for UI Boostrap.
-  console.log(auth);
+.controller( 'AboutCtrl', function AboutCtrl( $scope ,authenticationSvc, $location, auth, $timeout, Pagination) {
+
   $scope.dropdownActive = false;
   $scope.search = {};
   $scope.search.minAmount = 0;
+  $scope.search.filtered = [];
   $scope.search.name = '';
   $scope.search.maxAmount = 90000000;
-
-  $scope.orders = [{
-    orderId: 1,
-    name: "Ankit",
-    address: 'Ap #448-8442 Fermentum Street',
-    status: 0,
-    phone: '8960274028',
-    price: 350
-  },
-  {
-    orderId: 2,
-    name: "Sahil",
-    address: 'Ap #448-8442 Fermentum Street',
-    status: 1,
-    phone: '8960274028',
-    price: 50
-  },
-  {
-    orderId: 3,
-    name: "Manoj",
-    address: 'Ap #448-8442 Fermentum Street',
-    status: 2,
-    phone: '8960274028',
-    price: 250
-  }];
-  $scope.orders = [
+  $scope.pageOrders = [
 	{
 		"orderId": 1,
 		"name": "Ali Holman",
@@ -945,6 +921,12 @@ angular.module( 'ngBoilerplate.about', [
     $scope.currentSelectedStatus = value;
     $scope.currentSelectedStatusValue = name;
   };
+
+  $scope.pagination = Pagination.getNew(20);
+  $scope.search.filtered = $scope.pageOrders;
+  $scope.$watch('search.filtered.length', function() {
+    $scope.pagination.numPages = Math.ceil($scope.search.filtered.length/$scope.pagination.perPage);
+  });
 
 })
 
