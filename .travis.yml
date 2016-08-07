@@ -1,17 +1,17 @@
 language: node_js
 node_js:
-  - "6.3.0"
+  - 6.3.0
 env:
   global:
-    - GH_REF: 'github.com/ankitsilaich/jumbotail.git'
-
+    - GH_REF: github.com/ankitsilaich/jumbotail.git
+    - secure: >-
+        wQyjRtoBBC2RsG2zQuqN6Kv8KCi/7VuKzsz1uBadElXMlRz2xasKQyrmsOlbywjK27r/NVBjZlLMkL2oz7sYso3db3Z7i2Cuh4yz8Q8zcEUjwY+tR5jPapGpzMebdUF1VnEb8WYaxpj8Pd3BMvwVFJm8rC+icg0NxTfr7GyoUQBHfQ4BUFlgFHaoIEGJDzzco2EYpQLclCAUh92vxqctiWbSh+lfz1q2DfreFDNyJT6qQhqbyc4ffOjH9KuiCI23WiF/3QMCzGHTAeHj+cFjuTpYffg0V+0h5ZXFyRBC2iqeuARJRXIygudLfzi8l0AIfvhJmPRMzrCYKAmBgMb3XyGosvN1glGn2YqDmwMaTO6/+8+3gUOPnzE9UdtLBVudcdA/SY5wxVsNCaR6BSZiyINoeC0fS1q1PTkP+/6y6xpI6AewtRSAw+5x3oq0K0y0n41zJIL207g/WDn6ep0No1H3wfO6kgnH06OCOghC8wasnr8UkS8P6XH7ZXj4i/uGru4EBKdr6JpUkLl42nkTUeC2HsmDQfGEV7wQRA6W6sqsyJTIcZ6tMfyAx6jLRPxZAl4f6PO2U2uJ6vaME7YRKPYtw6mByJxF41Bl9pF5GfDdllRCOuRauaeY4bXeggO8F78L83EXpR/MqDxKQZWcS9il10U1Z6nQ2+P30a1PJ/E=
 before_script:
-  - export DISPLAY=:99.0
+  - 'export DISPLAY=:99.0'
   - sh -e /etc/init.d/xvfb start
   - npm install --quiet -g grunt-cli karma bower
   - npm install
   - bower install
-
 script: grunt
 cache:
   directories:

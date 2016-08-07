@@ -8,4 +8,3 @@ rm -rf out || exit 0;
  git commit -m "Deployed to Github Pages"
  git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master
 )
-Contact GitHub API Training Shop Blog About
