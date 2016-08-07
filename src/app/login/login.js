@@ -37,6 +37,9 @@ angular.module( 'ngBoilerplate.login', [
 
 .controller("loginCtrl", ["$scope", "$location", "$window", "authenticationSvc",function ($scope, $location, $window, authenticationSvc) {
     $scope.activeForm = 'login-form';
+    if(authenticationSvc.getUserInfo()){
+      $location.path("/about");
+    }
     $scope.changeForms = function(formName) {
       $scope.activeForm = formName;
     };
