@@ -6,5 +6,5 @@ rm -rf out || exit 0;
  git config user.email "travis@nodemeatspace.com"
  git add .
  git commit -m "Deployed to Github Pages"
- git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" gh-pages
+ git push --force  "https://${GH_TOKEN}@${GH_REF}" master:gh-pages
 )
