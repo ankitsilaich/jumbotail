@@ -1,0 +1,167 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html {
+  overflow-y: scroll;
+}
+
+body {
+  // background: #3b4465;
+  overflow-x: hidden;
+  font-family: 'Raleway', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #1ab188;
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
+}
+
+a:hover {
+  color: #795d9f;
+}
+
+.login-wrapper {
+  background: #e7edf6;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.form {
+  background: white;
+  padding: 40px;
+  max-width: 550px;
+  margin: 40px auto;
+  border-radius: 4px;
+  box-shadow: 0 2px 64px 0 rgba(197,197,197,.5);
+}
+
+.tab-group {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 40px 0;
+  border-radius: 3px;
+  border: 2px solid #9172b9;
+
+}
+.tab-group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.tab-group li a {
+  display: block;
+  text-decoration: none;
+  padding: 15px;
+  background: white;
+  color: #a0b3b0;
+  font-size: 18px;
+  float: left;
+  width: 50%;
+  text-align: center;
+  cursor: pointer;
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
+}
+.tab-group li a:hover {
+  background: #9172b9;
+  color: #ffffff;
+}
+.tab-group .active a {
+  background: #9172b9;
+  color: #ffffff;
+}
+
+h1 {
+  text-align: center;
+  color: #b5b5b5;
+  font-weight: 300;
+  margin: 0 0 40px;
+}
+
+.login input, .login textarea {
+  font-size: 14px;
+  display: block;
+  width: 100%;
+  font-family: 'Raleway', sans-serif;
+  height: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px solid #f0f1f3;
+  color: #b5b5b5;
+  background: #f4f7f9;
+  -webkit-transition: border-color .25s ease, box-shadow .25s ease;
+  transition: border-color .25s ease, box-shadow .25s ease;
+}
+.login input:focus, .login textarea:focus {
+  outline: 0;
+  border-color: #9172b9;
+}
+
+textarea {
+  border: 2px solid #a0b3b0;
+  resize: vertical;
+}
+
+.field-wrap {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.top-row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.top-row > div {
+  float: left;
+  width: 48%;
+  margin-right: 4%;
+}
+.top-row > div:last-child {
+  margin: 0;
+}
+
+.button {
+  border: 0;
+  outline: none;
+  border-radius: 0;
+  padding: 15px 0;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  background: #9172b9;
+  color: #ffffff;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  -webkit-appearance: none;
+  font-family: 'Raleway', sans-serif;
+
+}
+.button:hover, .button:focus {
+  background: #795d9f;
+}
+
+.button-block {
+  display: block;
+  width: 100%;
+}
+
+.forgot {
+  margin-top: -20px;
+  text-align: right;
+  a {
+    color : #9172b9;
+  }
+}
+
+.error-login {
+  text-align: center;
+  color: red;
+}

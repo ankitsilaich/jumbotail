@@ -1,0 +1,168 @@
+<div ng-contrller="AboutCtrl"><navbar>
+  <a class="website-logo"><img src ="http://jumbotail.com/wp-content/uploads/2015/08/logo-white.png"></a>
+  <div class="website-search">
+			<form action="#0">
+        <!-- <div class="search-icon fa fa-search"></div> -->
+				<!-- <input type="search" placeholder="Search..."> -->
+			</form>
+	</div>
+  <nav class="website-nav">
+		<ul class="website-top-nav">
+				<li><a href="#0">Tour</a></li>
+				<li><a href="#0">Support</a></li>
+				<li class="has-children account" ng-class="{selected : dropdownActive}" ng-click="openDropdown()">
+					<a >
+						<img src="https://codyhouse.co/demo/responsive-sidebar-navigation/img/cd-avatar.png" alt="avatar" class="avatar-image">
+						Account
+					</a>
+					<ul>
+						<li><a href="#0">My Account</a></li>
+						<li><a href="#0">Edit Account</a></li>
+						<li><a ng-click="logout()">Logout</a></li>
+					</ul>
+				</li>
+			</ul>
+  </nav>
+</navbar>
+<div class="filters-container">
+  <div class="filter-box">
+    <div class="col-3">
+      <div class="filter filter-datepicker">
+        <div class="filter-icon"><i class="icon-calendar icons"></i></div>
+        <div class="filter-text">All Orders</div>
+        <div class="filter-dropdown"><i class="icon-arrow-down icons"></i></div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="filter filter-search no-padding" >
+        <input placeholder="Search Orders by Name" ng-model="search.name"></input>
+        <div class="search-input"><i class="icon-magnifier icons"></i></div>
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="filter filter-all" ng-click="slide=!slide">
+        <div class="filter-icon"><i class="fa fa-filter"></i></div>
+        <div class="filter-text">Filters</div>
+        <div class="filter-dropdown" ng-show="!slide"><i class="icon-arrow-down icons"></i></div>
+        <div class="filter-dropdown" ng-show="slide"><i class="icon-arrow-up icons"></i></div>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+</div>
+<div class="filters-list animate-slide" ng-show="slide">
+  <div class="main-content-filters clearfix">
+    <div class="col-3">
+      <div class="filter-labels">
+        Order Status
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="filter-labels">
+        Delivery Cost
+      </div>
+    </div>
+    <div class="col-6"></div>
+  </div>
+  <div class="clearfix"></div>
+
+  <div class="main-content-filters clearfix">
+    <div class="col-3">
+      <div class="filter filter-datepicker">
+        <div class="filter-text">Pending</div>
+        <div class="filter-dropdown"><i class="icon-arrow-down icons"></i></div>
+      </div>
+      <div class="filter filter-datepicker">
+        <div class="filter-text">Time</div>
+        <div class="filter-dropdown"><i class="icon-arrow-down icons"></i></div>
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="col-3">
+        <div class="filter-labels search">
+          From
+        </div>
+      </div>
+      <div class="col-9">
+        <div class="filter filter-search no-padding clearfix">
+          <input placeholder="From Rs. 0"  ng-model="search.minAmount" ></input>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="filter-labels search" >
+          To
+        </div>
+      </div>
+      <div class="col-9">
+        <div class="filter filter-search no-padding clearfix">
+          <input placeholder="To Rs. 100000"ng-model="search.maxAmount"></input>
+        </div>
+      </div>
+    </div>
+    <div class="col-3">.</div>
+    <div class="col-3" style="text-align:center">
+      <div class="clear-filter">Clear Filters</div>
+      <div><button class="button filter-button" >Filter</button></div>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+</div>
+<div class="clearfix"></div>
+
+<div class="main-content">
+  <div class="result-description-cotainer">
+    <div class="result-content col-6">
+      <span>Search Result for : Programs, orders, sellers</span>
+    </div>
+    <div class="result-content col-6 text-right">
+      {{temp.length}}
+      <span>{{filtered.length}}  Results</span>
+      <span class="grid" ng-click='isGrid=!isGrid'><i class="icon-grid icons"></i></span>
+      <span class="list"  ng-click='isGrid=!isGrid'><i class="icon-list icons"></i></span>
+    </div>
+    <div class="results-list">
+      <div class="" ng-if="isGrid">
+
+      </div>
+      <table class="order-table" ng-if="!isGrid" id="responsive">
+        <thead>
+          <tr>
+            <th>Order Id</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Status</th>
+            <th>Phone</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr  ng-repeat="order in filtered = (orders | filter: {name: search.name} | filter : matchAmount)">
+            <td data-title="Order Id">{{order.orderId}}</td>
+            <td data-title="Name" class="dark-bold">{{order.name}}</td>
+            <td data-title="Address" >{{order.address}}</td>
+            <td data-title="Status" class="order-status" data-status={{order.status}}>{{statusToString(order.status)}}</td>
+            <td data-title="Phone" >{{order.phone}}</td>
+            <td data-title="Price" >Rs {{order.price}}</td>
+          </tr>
+        <tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+<div id="modal" ng-class="{active: openTermsAndModal}">
+  <div class="modal-content">
+    <div class="header">
+      <h2>Terms & Conditions</h2>
+    </div>
+    <div class="copy">
+      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.</p>
+      <a ng-click="closeModal()">Accept</a> </div>
+  </div>
+  <div class="overlay"></div>
+</div>
+</div>
+
+<!-- <a href="#modal">
+<h1 align="center">Open Modal</h1>
+</a> -->

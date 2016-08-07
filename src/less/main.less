@@ -1,0 +1,89 @@
+/**
+ * This is the main application stylesheet. It should include or import all
+ * stylesheets used throughout the application as this is the only stylesheet in
+ * the Grunt configuration that is automatically processed.
+ */
+
+
+/**
+ * First, we include the Twitter Bootstrap LESS files. Only the ones used in the
+ * project should be imported as the rest are just wasting space.
+ */
+
+/* @import '../../vendor/simple-line-icons/less/simple-line-icons.less'; */
+/* @import '../../vendor/bootstrap/less/bootstrap.less'; */
+
+
+/**
+ * This is our main variables file. We must include it last so we can overwrite any variable
+ * definitions in our imported stylesheets.
+ */
+
+@import 'variables.less';
+@import 'tables.less';
+
+
+
+/**
+ * Typography
+ */
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto Regular'), local('Roboto-Regular'), url(fonts/Roboto-Regular.woff) format('woff');
+}
+
+body {
+  background : #D9DAD5;
+  margin : 0;
+}
+
+.col-3 {
+  float: left;
+  width : 25%;
+  @media only screen and (max-device-width: 480px) {
+    width: 100%;
+	}
+}
+
+.col-6 {
+  float: left;
+  width : 50%;
+  @media only screen and (max-device-width: 480px) {
+    width: 100%!important;
+  }
+}
+
+.col-9 {
+  float: left;
+  width : 75%;
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+
+.clearfix {
+    display: inline-block;
+}
+
+.text-right {
+  text-align : right!important;
+}
+
+.dark-bold {
+  color: #7b8086!important;
+}
+
+@import 'navbar.less';
+@import 'modal.less';
+
+@import '../app/login/login.less';
+@import '../app/about/about.less';
