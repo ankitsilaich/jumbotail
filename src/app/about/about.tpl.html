@@ -115,7 +115,6 @@
       <span>Search Result for : Programs, orders, sellers</span>
     </div>
     <div class="result-content col-6 text-right">
-      {{temp.length}}
       <span>{{filtered.length}}  Results</span>
       <span class="grid" ng-click='isGrid=!isGrid'><i class="icon-grid icons"></i></span>
       <span class="list"  ng-click='isGrid=!isGrid'><i class="icon-list icons"></i></span>
@@ -148,7 +147,15 @@
       </table>
     </div>
   </div>
-
+  <ul class="paginate pag5 clearfix">
+        <li class="single">Page 5 of 5</li>
+        <li><a>1</a></li>
+        <li><a>2</a></li>
+        <li><a>3</a></li>
+        <li><a>4</a></li>
+        <li class="current">5</li>
+        <!-- <li class="navpage"><a href="">next</a></li> -->
+  </ul>
 </div>
 <div id="modal" ng-class="{active: openTermsAndModal}">
   <div class="modal-content">
@@ -162,7 +169,3 @@
   <div class="overlay"></div>
 </div>
 </div>
-
-<!-- <a href="#modal">
-<h1 align="center">Open Modal</h1>
-</a> -->
