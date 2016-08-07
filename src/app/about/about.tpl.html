@@ -1,4 +1,4 @@
-<div ng-contrller="AboutCtrl"><navbar>
+<div ng-contrller="AboutCtrl" ><navbar>
   <a class="website-logo"><img src ="http://jumbotail.com/wp-content/uploads/2015/08/logo-white.png"></a>
   <div class="website-search">
 			<form action="#0">
@@ -17,7 +17,7 @@
 					<a >
 						<img src="https://codyhouse.co/demo/responsive-sidebar-navigation/img/cd-avatar.png" alt="avatar" class="avatar-image">
 						Account
-            <span class="icon icon-arrow-down" ng-if="!dropdownActive"></span>
+            <span class="icon icon-arrow-down " ng-if="!dropdownActive"></span>
             <span class="icon icon-arrow-up" ng-if="dropdownActive"></span>
 					</a>
 					<ul>
@@ -146,9 +146,10 @@
             <th>Order Id</th>
             <th>Name</th>
             <th>Address</th>
-            <th>Status</th>
             <th>Phone</th>
             <th>Price</th>
+            <th>Status</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -156,9 +157,18 @@
             <td data-title="Order Id">{{order.orderId}}</td>
             <td data-title="Name" class="dark-bold">{{order.name}}</td>
             <td data-title="Address" >{{order.address}}</td>
-            <td data-title="Status" class="order-status" data-status={{order.status}}>{{statusToString(order.status)}}</td>
             <td data-title="Phone" >{{order.phone}}</td>
             <td data-title="Price" >Rs {{order.price}}</td>
+            <td data-title="Status" class="order-status" data-status={{order.status}}>{{statusToString(order.status)}}</td>
+            <td data-title="Actions">
+              <span class="icons icon-note actions" ng-click="changeStatus = !changeStatus">
+                <div ng-class="{'dropdown dropdown-status': true,'open': changeStatus}">
+                  <ul class="dropdown-list">
+                    <li class="dropdown-item" ng-repeat="item in orderStatuses" ng-click="order.status = item.value">{{item.name}}</li>
+                  </ul>
+                </div>
+              </span>
+            </td>
           </tr>
         <tbody>
       </table>

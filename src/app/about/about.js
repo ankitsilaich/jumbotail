@@ -901,6 +901,9 @@ angular.module( 'ngBoilerplate.about', [
       case 6:
         string = 'Returned';
         break;
+      case 7:
+        string = 'Lost';
+        break;
       default:
     }
     return string;
@@ -934,8 +937,8 @@ angular.module( 'ngBoilerplate.about', [
     value: 6
   },
   {
-    name : 'All Orders',
-    value: undefined
+    name : 'Cancelled',
+    value: 3
   }];
   $scope.currentSelectedStatusValue = 'All Orders';
   $scope.changeOrderStatus = function(value,name) {
