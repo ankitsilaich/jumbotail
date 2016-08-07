@@ -40,7 +40,7 @@ angular.module( 'ngBoilerplate.login', [
     $scope.changeForms = function(formName) {
       $scope.activeForm = formName;
     };
-    $scope.userName = "first@gmail.com";
+    $scope.userName = "first@jumbotail.com";
     $scope.userInfo = null;
     $scope.login = function () {
         var login = authenticationSvc.login($scope.userName, $scope.password);

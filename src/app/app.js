@@ -27,6 +27,8 @@ angular.module( 'ngBoilerplate', [
   $rootScope.$on("$routeChangeError", function (event, current, previous, eventObj) {
       if (eventObj.authenticated === false) {
           $location.path("/login");
+      } else {
+          $location.path("/about");
       }
   });
 })
@@ -36,13 +38,13 @@ angular.module( 'ngBoilerplate', [
 
     function login(userName, password) {
         // var deferred = $q.defer();
-        if(userName == 'first@gmail.com'){
+        if(userName == 'first@jumbotail.com' && password== 'first' ){
           userInfo = {
             userName: userName,
             isFirst: true
           };
 
-        } else if(userName == 'second@gmail.com'){
+        } else if(userName == 'second@jumbotail.com' && password== 'second'){
           userInfo = {
             userName: userName,
             isFirst: false
