@@ -922,6 +922,27 @@ angular.module( 'ngBoilerplate.about', [
       $scope.openTermsAndModal = false;
   };
   $timeout($scope.openModal, 2000);
+
+  $scope.orderStatuses = [{
+    name : 'Pending',
+    value: 4
+  },{
+    name : 'Delivered',
+    value: 2
+  },{
+    name : 'Returned',
+    value: 6
+  },
+  {
+    name : 'All Orders',
+    value: undefined
+  }];
+  $scope.currentSelectedStatusValue = 'All Orders';
+  $scope.changeOrderStatus = function(value,name) {
+    $scope.currentSelectedStatus = value;
+    $scope.currentSelectedStatusValue = name;
+  };
+
 })
 
 ;

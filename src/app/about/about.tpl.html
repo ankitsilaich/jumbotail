@@ -75,9 +75,14 @@
 
   <div class="main-content-filters clearfix">
     <div class="col-3">
-      <div class="filter filter-datepicker">
-        <div class="filter-text">Pending</div>
+      <div class="filter filter-datepicker" ng-click="statusdropdownOpen=!statusdropdownOpen">
+        <div class="filter-text">{{currentSelectedStatusValue}}</div>
         <div class="filter-dropdown"><i class="icon-arrow-down icons"></i></div>
+        <div ng-class="{'dropdown': true,'open': statusdropdownOpen}">
+          <ul class="dropdown-list">
+            <li class="dropdown-item" ng-repeat="item in orderStatuses" ><div ng-click="changeOrderStatus(item.value, item.name)">{{item.name}}</div></li>
+          </ul>
+        </div>
       </div>
       <div class="filter filter-datepicker">
         <div class="filter-text">Time</div>
@@ -106,10 +111,10 @@
         </div>
       </div>
     </div>
-    <div class="col-3">.</div>
+    <div class="col-3 dark-text">.</div>
     <div class="col-3" style="text-align:center">
       <div class="clear-filter">Clear Filters</div>
-      <div><button class="button filter-button" >Filter</button></div>
+      <div><button class="button filter-button" ng-click="slide=!slide">Filter</button></div>
     </div>
     <div class="clearfix"></div>
   </div>
@@ -142,7 +147,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr  ng-repeat="order in filtered = (orders | filter: {name: search.name} | filter : matchAmount)">
+          <tr  ng-repeat="order in filtered = (orders | filter: {name: search.name} | filter : matchAmount) | filter: {status : currentSelectedStatus}">
             <td data-title="Order Id">{{order.orderId}}</td>
             <td data-title="Name" class="dark-bold">{{order.name}}</td>
             <td data-title="Address" >{{order.address}}</td>
@@ -161,7 +166,6 @@
         <li><a>3</a></li>
         <li><a>4</a></li>
         <li class="current">5</li>
-        <!-- <li class="navpage"><a href="">next</a></li> -->
   </ul>
 </div>
 <div id="modal" ng-class="{active: openTermsAndModal}">
