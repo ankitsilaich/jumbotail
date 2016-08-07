@@ -1,6 +1,9 @@
 language: node_js
 node_js:
-  - "0.10"
+  - "6.30"
+env:
+  global:
+    - GH_REF: 'github.com/ankitsilaich/jumbotail.git'
 
 before_script:
   - export DISPLAY=:99.0
@@ -10,4 +13,12 @@ before_script:
   - bower install
 
 script: grunt
-
+cache:
+  directories:
+    - node_modules
+notifications:
+  email:
+    on_failure: change
+after_success:
+  - npm run coveralls
+  - bash ./deploy.sh
