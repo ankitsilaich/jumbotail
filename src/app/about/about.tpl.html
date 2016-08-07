@@ -6,18 +6,21 @@
 				<!-- <input type="search" placeholder="Search..."> -->
 			</form>
 	</div>
+  <nav class="mobile-nav" ng-click="logout()">
+    <i class="icon-logout icons"></i>
+  </div>
   <nav class="website-nav">
 		<ul class="website-top-nav">
-				<li><a href="#0">Tour</a></li>
-				<li><a href="#0">Support</a></li>
+				<li><a>Orders</a></li>
+				<li><a >Reports</a></li>
 				<li class="has-children account" ng-class="{selected : dropdownActive}" ng-click="openDropdown()">
 					<a >
 						<img src="https://codyhouse.co/demo/responsive-sidebar-navigation/img/cd-avatar.png" alt="avatar" class="avatar-image">
 						Account
 					</a>
 					<ul>
-						<li><a href="#0">My Account</a></li>
-						<li><a href="#0">Edit Account</a></li>
+						<li><a >My Account</a></li>
+						<li><a >Edit Account</a></li>
 						<li><a ng-click="logout()">Logout</a></li>
 					</ul>
 				</li>
