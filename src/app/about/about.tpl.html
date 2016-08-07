@@ -26,11 +26,18 @@
 </navbar>
 <div class="filters-container">
   <div class="filter-box">
-    <div class="col-3">
-      <div class="filter filter-datepicker">
+    <div class="col-3" ng-init="dropdownOpen=false">
+      <div class="filter filter-datepicker" ng-click="dropdownOpen=!dropdownOpen">
         <div class="filter-icon"><i class="icon-calendar icons"></i></div>
         <div class="filter-text">All Orders</div>
         <div class="filter-dropdown"><i class="icon-arrow-down icons"></i></div>
+        <div ng-class="{'dropdown': true,'open': dropdownOpen}">
+          <ul class="dropdown-list">
+            <li class="dropdown-item">item1</li>
+            <li class="dropdown-item">item2</li>
+            <li class="dropdown-item">item3</li>
+          </ul>
+        </div>
       </div>
     </div>
     <div class="col-6">
