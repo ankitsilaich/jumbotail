@@ -20,5 +20,4 @@ notifications:
   email:
     on_failure: change
 after_success:
-  - npm run coveralls
   - bash ./deploy.sh
