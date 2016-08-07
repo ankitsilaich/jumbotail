@@ -1,5 +1,6 @@
 # JUMBOTAIL
 Interview assignment for Jumbotail
+[![Build Status](https://travis-ci.org/ankitsilaich/jumbotail.svg?branch=master)](https://travis-ci.org/ankitsilaich/jumbotail)
 
 ## Boilerplate Used
 [ngBoilerplate](http://joshdmiller.github.com/ng-boilerplate)
