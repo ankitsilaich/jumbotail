@@ -139,7 +139,7 @@
     </div>
     <div class="results-list">
       <div class="" ng-if="isGrid">
-
+        Grid view implementation needed
       </div>
       <table class="order-table" ng-if="!isGrid" id="responsive">
         <thead>
@@ -176,7 +176,7 @@
 
       </table>
       <div class="table-row" ng-repeat="order in search.filtered = (pageOrders | filter: {name: search.name}  | filter : matchAmount | filter: {status : currentSelectedStatus} ) | startFrom: pagination.page * pagination.perPage | limitTo: pagination.perPage" style="display:none">
-      
+
       </div>
     </div>
   </div>
