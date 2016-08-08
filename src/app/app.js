@@ -1,7 +1,7 @@
 angular.module( 'ngBoilerplate', [
   'templates-app',
   'templates-common',
-  'ngBoilerplate.about',
+  'ngBoilerplate.orders',
   'ngBoilerplate.login',
   'ui.router'
 ])
@@ -21,18 +21,12 @@ angular.module( 'ngBoilerplate', [
   });
 
   $rootScope.$on("$routeChangeSuccess", function (userInfo, eventObj) {
-    if (eventObj.authenticated === false) {
-        $location.path("/login");
-    } else {
-        $location.path("/about");
-    }
+    console.log(userInfo);
   });
 
   $rootScope.$on("$routeChangeError", function (event, current, previous, eventObj) {
       if (eventObj.authenticated === false) {
           $location.path("/login");
-      } else {
-          $location.path("/about");
       }
   });
 })
@@ -42,13 +36,13 @@ angular.module( 'ngBoilerplate', [
 
     function login(userName, password) {
         // var deferred = $q.defer();
-        if(userName == 'first@jumbotail.com' && password== 'first' ){
+        if(userName === 'first@jumbotail.com' && password === 'first' ){
           userInfo = {
             userName: userName,
             isFirst: true
           };
 
-        } else if(userName == 'second@jumbotail.com' && password== 'second'){
+        } else if(userName === 'second@jumbotail.com' && password === 'second'){
           userInfo = {
             userName: userName,
             isFirst: false

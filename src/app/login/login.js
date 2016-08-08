@@ -16,29 +16,10 @@ angular.module( 'ngBoilerplate.login', [
   });
 })
 
-// .controller( 'loginCtrl',function AboutCtrl( $scope ) {
-//   $scope.activeForm = 'login-form';
-//   $scope.changeForms = function(formName) {
-//     $scope.activeForm = formName;
-//   };
-//   $scope.userInfo = null;
-//   $scope.login = function () {
-//       authenticationSvc.login($scope.userName, $scope.password)
-//           .then(function (result) {
-//               $scope.userInfo = result;
-//               $location.path("/");
-//           }, function (error) {
-//               $window.alert("Invalid credentials");
-//               console.log(error);
-//           });
-//   };
-//
-// })
-
 .controller("loginCtrl", ["$scope", "$location", "$window", "authenticationSvc",function ($scope, $location, $window, authenticationSvc) {
     $scope.activeForm = 'login-form';
     if(authenticationSvc.getUserInfo()){
-      $location.path("/about");
+      $location.path("/orders");
     }
     $scope.changeForms = function(formName) {
       $scope.activeForm = formName;
@@ -49,7 +30,7 @@ angular.module( 'ngBoilerplate.login', [
         var login = authenticationSvc.login($scope.userName, $scope.password);
         if(login){
           $scope.userInfo = 'sadadsad';
-          $location.path("/about");
+          $location.path("/orders");
         } else {
           $scope.loginFailed = true;
         }

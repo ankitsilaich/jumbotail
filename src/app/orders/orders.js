@@ -1,16 +1,16 @@
-angular.module( 'ngBoilerplate.about', [
+angular.module( 'ngBoilerplate.orders', [
   'ui.router',
   'ui.bootstrap',
   'simplePagination'
 ])
 
 .config(function config( $stateProvider ) {
-  $stateProvider.state( 'about', {
-    url: '/about',
+  $stateProvider.state( 'orders', {
+    url: '/orders',
     views: {
       "main": {
-        controller: 'AboutCtrl',
-        templateUrl: 'about/about.tpl.html'
+        controller: 'OrdersCtrl',
+        templateUrl: 'orders/orders.tpl.html'
       }
     },
     resolve: {
@@ -23,11 +23,11 @@ angular.module( 'ngBoilerplate.about', [
             }
         }
     },
-    data:{ pageTitle: 'What is It?' }
+    data:{ pageTitle: 'Orders' }
   });
 })
 
-.controller( 'AboutCtrl', function AboutCtrl( $scope ,authenticationSvc, $location, auth, $timeout, Pagination) {
+.controller( 'OrdersCtrl', function OrdersCtrl( $scope ,authenticationSvc, $location, auth, $timeout, Pagination) {
   $scope.dropdownActive = false;
   $scope.search = {};
   $scope.search.minAmount = 0;
