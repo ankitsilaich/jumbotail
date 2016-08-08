@@ -14,13 +14,12 @@ angular.module( 'ngBoilerplate.about', [
       }
     },
     resolve: {
-        auth: function ($q, authenticationSvc) {
+        auth: function ($q, authenticationSvc , $location) {
             var userInfo = authenticationSvc.getUserInfo();
-            console.log(userInfo);
             if (userInfo) {
                 return $q.when(userInfo);
             } else {
-                return $q.reject({ authenticated: false });
+                return $location.path("/login");
             }
         }
     },
@@ -29,7 +28,6 @@ angular.module( 'ngBoilerplate.about', [
 })
 
 .controller( 'AboutCtrl', function AboutCtrl( $scope ,authenticationSvc, $location, auth, $timeout, Pagination) {
-
   $scope.dropdownActive = false;
   $scope.search = {};
   $scope.search.minAmount = 0;

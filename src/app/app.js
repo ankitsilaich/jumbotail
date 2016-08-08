@@ -13,15 +13,19 @@ angular.module( 'ngBoilerplate', [
 .run( function run () {
 })
 
-.controller( 'AppCtrl', function AppCtrl ( $scope, $location,$rootScope ) {
+.controller( 'AppCtrl', function AppCtrl ( $scope, $location, $rootScope ) {
   $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
     if ( angular.isDefined( toState.data.pageTitle ) ) {
-      $scope.pageTitle = toState.data.pageTitle + ' | ngBoilerplate' ;
+      $scope.pageTitle = toState.data.pageTitle + ' | Jumbotail' ;
     }
   });
 
-  $rootScope.$on("$routeChangeSuccess", function (userInfo) {
-      console.log(userInfo);
+  $rootScope.$on("$routeChangeSuccess", function (userInfo, eventObj) {
+    if (eventObj.authenticated === false) {
+        $location.path("/login");
+    } else {
+        $location.path("/about");
+    }
   });
 
   $rootScope.$on("$routeChangeError", function (event, current, previous, eventObj) {
