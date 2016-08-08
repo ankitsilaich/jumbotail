@@ -1,6 +1,7 @@
 # JUMBOTAIL
 Interview assignment for Jumbotail
 [![Build Status](https://travis-ci.org/ankitsilaich/jumbotail.svg?branch=master)](https://travis-ci.org/ankitsilaich/jumbotail)
+[![Code Climate](https://codeclimate.com/github/ankitsilaich/jumbotail/badges/gpa.svg)](https://codeclimate.com/github/ankitsilaich/jumbotail)
 
 ## DEMO
 [link](https://ankitsilaich.github.io/jumbotail)
