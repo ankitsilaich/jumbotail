@@ -918,6 +918,7 @@ angular.module( 'ngBoilerplate.orders', [
     name : 'Cancelled',
     value: 3
   }];
+
   $scope.currentSelectedStatusValue = 'All Orders';
   $scope.changeOrderStatus = function(value,name) {
     $scope.currentSelectedStatus = value;
@@ -929,6 +930,15 @@ angular.module( 'ngBoilerplate.orders', [
   $scope.$watch('search.filtered.length', function() {
     $scope.pagination.numPages = Math.ceil($scope.search.filtered.length/$scope.pagination.perPage);
   });
+
+
+  $scope.updateStatus = function(id,status) {
+    angular.forEach($scope.search.filtered, function (order) {
+      if(order.orderId === id) {
+        order.status = status;
+      }
+    });
+  };
 
 })
 
