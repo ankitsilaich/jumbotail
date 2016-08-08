@@ -3,7 +3,7 @@
   left: 50%;
   margin: -250px 0 0 -32%;
   opacity: 0;
-  position: absolute;
+  position: fixed;
   top: -50%;
   visibility: hidden;
   width: 65%;
@@ -17,7 +17,8 @@
 #modal.active {
   opacity: 1;
   top: 50%;
-  visibility: visible
+  visibility: visible;
+  z-index: 1233;
 }
 
 #modal .header, #modal .footer {
@@ -53,7 +54,14 @@
   color: #fff
 }
 
-#modal .copy { background: white }
+#modal .copy {
+  background: white;
+}
+
+#modal .copy p {
+  max-height: 300px;
+  overflow-y: scroll;
+}
 
 #modal .overlay {
   background-color: #000;

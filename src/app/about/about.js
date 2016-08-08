@@ -894,10 +894,14 @@ angular.module( 'ngBoilerplate.about', [
   $scope.openTermsAndModal = false;
   $scope.openModal = function(){
     if(auth.isFirst){
+      var html = document.documentElement;
+      html.className += ' overflow-hidden';
       $scope.openTermsAndModal = true;
     }
   };
   $scope.closeModal = function(){
+      var html = document.documentElement;
+      html.classList.remove('overflow-hidden');
       $scope.openTermsAndModal = false;
   };
   $timeout($scope.openModal, 2000);
